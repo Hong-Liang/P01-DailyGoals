@@ -12,15 +12,14 @@ import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText reflection = (EditText) findViewById(R.id.editText);
-    Button btnDone = (Button) findViewById(R.id.button);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnDone.setOnClickListener(new View.OnClickListener() {
+        Button btn = (Button) findViewById(R.id.button);
+
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 RadioGroup rg1 = (RadioGroup) findViewById(R.id.Q1);
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 // Get the radio button object from the Id we had gotten above
                 RadioButton rb3 = (RadioButton) findViewById(selectedButtonId3);
 
+                EditText reflection = (EditText) findViewById(R.id.editText);
                 String[] info = {rb.getText().toString(), rb2.getText().toString(), rb3.getText().toString(), reflection.getText().toString()};
                 Intent i = new Intent(MainActivity.this,
                         Summary.class);
